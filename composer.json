@@ -1,6 +1,6 @@
 {
   "name": "tourze/nes-cpu",
-  "description": "MOS 6502",
+  "description": "MOS 6502 CPU模拟器，针对NES系统的Ricoh 2A03处理器优化",
   "type": "library",
   "license": "MIT",
   "require": {
@@ -12,12 +12,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Tourze\\MOS6502\\": "src/"
+      "Tourze\\NES\\CPU\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tourze\\MOS6502\\Tests\\": "tests/"
+      "Tourze\\NES\\CPU\\Tests\\": "tests/"
     }
   }
 }

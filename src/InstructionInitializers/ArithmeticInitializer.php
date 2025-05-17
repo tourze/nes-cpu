@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\InstructionInitializers;
+namespace Tourze\NES\CPU\InstructionInitializers;
 
-use Tourze\MOS6502\AddressingModeFactory;
-use Tourze\MOS6502\InstructionInitializer;
-use Tourze\MOS6502\Instructions;
-use Tourze\MOS6502\InstructionSet;
+use Tourze\NES\CPU\AddressingModeFactory;
+use Tourze\NES\CPU\InstructionInitializer;
+use Tourze\NES\CPU\Instructions;
+use Tourze\NES\CPU\InstructionSet;
 
 /**
  * 算术指令初始化器

@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\InstructionInitializers;
+namespace Tourze\NES\CPU\InstructionInitializers;
 
-use Tourze\MOS6502\AddressingModeFactory;
-use Tourze\MOS6502\InstructionInitializer;
-use Tourze\MOS6502\Instructions\BCC;
-use Tourze\MOS6502\Instructions\BCS;
-use Tourze\MOS6502\Instructions\BEQ;
-use Tourze\MOS6502\Instructions\BMI;
-use Tourze\MOS6502\Instructions\BNE;
-use Tourze\MOS6502\Instructions\BPL;
-use Tourze\MOS6502\Instructions\BVC;
-use Tourze\MOS6502\Instructions\BVS;
-use Tourze\MOS6502\InstructionSet;
+use Tourze\NES\CPU\AddressingModeFactory;
+use Tourze\NES\CPU\InstructionInitializer;
+use Tourze\NES\CPU\Instructions\BCC;
+use Tourze\NES\CPU\Instructions\BCS;
+use Tourze\NES\CPU\Instructions\BEQ;
+use Tourze\NES\CPU\Instructions\BMI;
+use Tourze\NES\CPU\Instructions\BNE;
+use Tourze\NES\CPU\Instructions\BPL;
+use Tourze\NES\CPU\Instructions\BVC;
+use Tourze\NES\CPU\Instructions\BVS;
+use Tourze\NES\CPU\InstructionSet;
 
 /**
  * 分支指令初始化器

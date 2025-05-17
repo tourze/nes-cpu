@@ -2,18 +2,18 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\InstructionInitializers;
+namespace Tourze\NES\CPU\InstructionInitializers;
 
-use Tourze\MOS6502\AddressingModeFactory;
-use Tourze\MOS6502\InstructionInitializer;
-use Tourze\MOS6502\Instructions\CLC;
-use Tourze\MOS6502\Instructions\CLD;
-use Tourze\MOS6502\Instructions\CLI;
-use Tourze\MOS6502\Instructions\CLV;
-use Tourze\MOS6502\Instructions\SEC;
-use Tourze\MOS6502\Instructions\SED;
-use Tourze\MOS6502\Instructions\SEI;
-use Tourze\MOS6502\InstructionSet;
+use Tourze\NES\CPU\AddressingModeFactory;
+use Tourze\NES\CPU\InstructionInitializer;
+use Tourze\NES\CPU\Instructions\CLC;
+use Tourze\NES\CPU\Instructions\CLD;
+use Tourze\NES\CPU\Instructions\CLI;
+use Tourze\NES\CPU\Instructions\CLV;
+use Tourze\NES\CPU\Instructions\SEC;
+use Tourze\NES\CPU\Instructions\SED;
+use Tourze\NES\CPU\Instructions\SEI;
+use Tourze\NES\CPU\InstructionSet;
 
 /**
  * 状态标志操作指令初始化器

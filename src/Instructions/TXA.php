@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Instructions;
+namespace Tourze\NES\CPU\Instructions;
 
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\CPU;
-use Tourze\MOS6502\InstructionBase;
-use Tourze\MOS6502\StatusRegister;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\CPU;
+use Tourze\NES\CPU\InstructionBase;
+use Tourze\NES\CPU\StatusRegister;
 
 /**
  * TXA - Transfer X to Accumulator

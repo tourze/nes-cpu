@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\AddressingModes;
+namespace Tourze\NES\CPU\AddressingModes;
 
-use Tourze\MOS6502\AddressingModeBase;
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\CPU;
+use Tourze\NES\CPU\AddressingModeBase;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\CPU;
 
 /**
  * 绝对Y索引寻址模式

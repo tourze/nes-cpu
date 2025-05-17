@@ -2,9 +2,9 @@
 
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use Tourze\MOS6502\Disassembler;
-use Tourze\MOS6502\InstructionSet;
-use Tourze\MOS6502\Memory;
+use Tourze\NES\CPU\Disassembler;
+use Tourze\NES\CPU\InstructionSet;
+use Tourze\NES\CPU\Memory;
 
 // 创建内存实例
 $memory = new Memory();

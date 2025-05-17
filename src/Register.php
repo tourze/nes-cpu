@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502;
+namespace Tourze\NES\CPU;
 
 /**
  * CPU寄存器基类

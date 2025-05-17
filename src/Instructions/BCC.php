@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Instructions;
+namespace Tourze\NES\CPU\Instructions;
 
-use Tourze\MOS6502\AddressingMode;
-use Tourze\MOS6502\CPU;
-use Tourze\MOS6502\StatusRegister;
+use Tourze\NES\CPU\AddressingMode;
+use Tourze\NES\CPU\CPU;
+use Tourze\NES\CPU\StatusRegister;
 
 /**
  * BCC - 无进位时分支 (Branch if Carry Clear)

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502;
+namespace Tourze\NES\CPU;
 
 use Exception;
 use InvalidArgumentException;
@@ -80,6 +80,13 @@ class CPU
     private InstructionSet $instructionSet;
 
     /**
+     * 是否禁用BCD模式（Ricoh 2A03/NES兼容模式）
+     *
+     * 当设置为true时，ADC和SBC指令将忽略十进制模式标志
+     */
+    private bool $disableBCD = true;
+
+    /**
      * 堆栈页面基地址
      */
     private const STACK_PAGE = 0x0100;
@@ -103,11 +110,13 @@ class CPU
      * 构造函数
      *
      * @param Bus $bus 总线实例
+     * @param bool $disableBCD 是否禁用BCD模式（默认为true，与NES兼容）
      */
-    public function __construct(Bus $bus)
+    public function __construct(Bus $bus, bool $disableBCD = true)
     {
         $this->bus = $bus;
         $this->instructionSet = new InstructionSet();
+        $this->disableBCD = $disableBCD;
 
         // 初始化寄存器
         $this->a = new Register('A');
@@ -410,6 +419,9 @@ class CPU
     /**
      * 处理十进制模式加法
      *
+     * 注意：Ricoh 2A03（NES使用的CPU）禁用了BCD模式，但我们保留此方法以支持标准6502
+     * 当在NES环境中使用时，即使D标志被设置，此方法也不会被调用
+     *
      * @param int $a 累加器值
      * @param int $b 操作数
      * @param bool $carry 进位标志
@@ -457,6 +469,9 @@ class CPU
 
     /**
      * 处理十进制模式减法
+     *
+     * 注意：Ricoh 2A03（NES使用的CPU）禁用了BCD模式，但我们保留此方法以支持标准6502
+     * 当在NES环境中使用时，即使D标志被设置，此方法也不会被调用
      *
      * @param int $a 累加器值
      * @param int $b 操作数
@@ -520,5 +535,26 @@ class CPU
             $this->status->getFormattedStatus(),
             $this->totalCycles
         );
+    }
+
+    /**
+     * 获取是否禁用BCD模式
+     *
+     * @return bool 是否禁用BCD模式
+     */
+    public function isDisableBCD(): bool
+    {
+        return $this->disableBCD;
+    }
+
+    /**
+     * 设置是否禁用BCD模式
+     *
+     * @param bool $disableBCD 是否禁用BCD模式
+     * @return void
+     */
+    public function setDisableBCD(bool $disableBCD): void
+    {
+        $this->disableBCD = $disableBCD;
     }
 }

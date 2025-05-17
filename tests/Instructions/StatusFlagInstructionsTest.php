@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\Instructions;
+namespace Tourze\NES\CPU\Tests\Instructions;
 
 use PHPUnit\Framework\TestCase;
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\CPU;
-use Tourze\MOS6502\Memory;
-use Tourze\MOS6502\StatusRegister;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\CPU;
+use Tourze\NES\CPU\Memory;
+use Tourze\NES\CPU\StatusRegister;
 
 /**
  * 状态标志指令测试

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\AddressingModes;
+namespace Tourze\NES\CPU\Tests\AddressingModes;
 
 use PHPUnit\Framework\TestCase;
-use Tourze\MOS6502\AddressingModeFactory;
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\CPU;
-use Tourze\MOS6502\Memory;
+use Tourze\NES\CPU\AddressingModeFactory;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\CPU;
+use Tourze\NES\CPU\Memory;
 
 /**
  * 寻址模式单元测试

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Instructions;
+namespace Tourze\NES\CPU\Instructions;
 
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\CPU;
-use Tourze\MOS6502\InstructionBase;
-use Tourze\MOS6502\StatusRegister;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\CPU;
+use Tourze\NES\CPU\InstructionBase;
+use Tourze\NES\CPU\StatusRegister;
 
 /**
  * SBC - Subtract Memory from Accumulator with Borrow
@@ -16,6 +16,9 @@ use Tourze\MOS6502\StatusRegister;
  *
  * 操作: A = A - M - (1 - C)
  * 标志位: N Z C V
+ *
+ * 注意: 在Ricoh 2A03（NES的CPU）中，十进制模式被禁用，即使设置了D标志也会被忽略
+ * 本实现可以通过CPU的disableBCD设置来模拟这种行为，或者使用标准6502的BCD模式
  */
 class SBC extends InstructionBase
 {
@@ -41,8 +44,8 @@ class SBC extends InstructionBase
         // 获取当前进位标志（在SBC中，进位标志的反转表示借位）
         $carry = $status->getFlag(StatusRegister::FLAG_CARRY);
 
-        // 检查是否为十进制模式
-        if ($status->getFlag(StatusRegister::FLAG_DECIMAL)) {
+        // 检查是否为十进制模式（仅当BCD模式未被禁用时有效）
+        if (!$cpu->isDisableBCD() && $status->getFlag(StatusRegister::FLAG_DECIMAL)) {
             // 使用CPU的十进制模式处理方法
             $result = $cpu->handleDecimalModeSbc($a, $value, $carry);
             $diff = $result['result'];

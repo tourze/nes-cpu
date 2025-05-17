@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\Memory;
+namespace Tourze\NES\CPU\Tests\Memory;
 
 use PHPUnit\Framework\TestCase;
-use Tourze\MOS6502\Memory;
+use Tourze\NES\CPU\Memory;
 
 /**
  * Memory类的单元测试

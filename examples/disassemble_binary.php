@@ -4,9 +4,9 @@
 
 require __DIR__ . '/../../../vendor/autoload.php';
 
-use Tourze\MOS6502\Disassembler;
-use Tourze\MOS6502\InstructionSet;
-use Tourze\MOS6502\Memory;
+use Tourze\NES\CPU\Disassembler;
+use Tourze\NES\CPU\InstructionSet;
+use Tourze\NES\CPU\Memory;
 
 // 解析命令行参数
 $options = getopt('f:a:l:o:h', ['file:', 'address:', 'length:', 'output:', 'help']);

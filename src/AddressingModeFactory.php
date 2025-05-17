@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502;
+namespace Tourze\NES\CPU;
 
-use Tourze\MOS6502\AddressingModes\AbsoluteAddressing;
-use Tourze\MOS6502\AddressingModes\AbsoluteXAddressing;
-use Tourze\MOS6502\AddressingModes\AbsoluteYAddressing;
-use Tourze\MOS6502\AddressingModes\AccumulatorAddressing;
-use Tourze\MOS6502\AddressingModes\ImmediateAddressing;
-use Tourze\MOS6502\AddressingModes\ImpliedAddressing;
-use Tourze\MOS6502\AddressingModes\IndirectAddressing;
-use Tourze\MOS6502\AddressingModes\IndirectXAddressing;
-use Tourze\MOS6502\AddressingModes\IndirectYAddressing;
-use Tourze\MOS6502\AddressingModes\RelativeAddressing;
-use Tourze\MOS6502\AddressingModes\ZeroPageAddressing;
-use Tourze\MOS6502\AddressingModes\ZeroPageXAddressing;
-use Tourze\MOS6502\AddressingModes\ZeroPageYAddressing;
+use Tourze\NES\CPU\AddressingModes\AbsoluteAddressing;
+use Tourze\NES\CPU\AddressingModes\AbsoluteXAddressing;
+use Tourze\NES\CPU\AddressingModes\AbsoluteYAddressing;
+use Tourze\NES\CPU\AddressingModes\AccumulatorAddressing;
+use Tourze\NES\CPU\AddressingModes\ImmediateAddressing;
+use Tourze\NES\CPU\AddressingModes\ImpliedAddressing;
+use Tourze\NES\CPU\AddressingModes\IndirectAddressing;
+use Tourze\NES\CPU\AddressingModes\IndirectXAddressing;
+use Tourze\NES\CPU\AddressingModes\IndirectYAddressing;
+use Tourze\NES\CPU\AddressingModes\RelativeAddressing;
+use Tourze\NES\CPU\AddressingModes\ZeroPageAddressing;
+use Tourze\NES\CPU\AddressingModes\ZeroPageXAddressing;
+use Tourze\NES\CPU\AddressingModes\ZeroPageYAddressing;
 
 /**
  * 寻址模式工厂类

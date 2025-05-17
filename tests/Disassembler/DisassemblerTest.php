@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\Disassembler;
+namespace Tourze\NES\CPU\Tests\Disassembler;
 
 use PHPUnit\Framework\TestCase;
-use Tourze\MOS6502\Disassembler;
-use Tourze\MOS6502\InstructionSet;
-use Tourze\MOS6502\Memory;
+use Tourze\NES\CPU\Disassembler;
+use Tourze\NES\CPU\InstructionSet;
+use Tourze\NES\CPU\Memory;
 
 /**
  * 反汇编器测试类

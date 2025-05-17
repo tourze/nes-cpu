@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502;
+namespace Tourze\NES\CPU;
 
 /**
  * 6502 CPU的内存模拟类

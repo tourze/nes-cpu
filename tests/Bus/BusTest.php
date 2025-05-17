@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\Bus;
+namespace Tourze\NES\CPU\Tests\Bus;
 
 use PHPUnit\Framework\TestCase;
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\Memory;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\Memory;
 
 /**
  * Bus类的单元测试

@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\InstructionInitializers;
+namespace Tourze\NES\CPU\InstructionInitializers;
 
-use Tourze\MOS6502\AddressingModeFactory;
-use Tourze\MOS6502\InstructionInitializer;
-use Tourze\MOS6502\Instructions\LDA;
-use Tourze\MOS6502\Instructions\LDX;
-use Tourze\MOS6502\Instructions\LDY;
-use Tourze\MOS6502\Instructions\STA;
-use Tourze\MOS6502\Instructions\STX;
-use Tourze\MOS6502\Instructions\STY;
-use Tourze\MOS6502\InstructionSet;
+use Tourze\NES\CPU\AddressingModeFactory;
+use Tourze\NES\CPU\InstructionInitializer;
+use Tourze\NES\CPU\Instructions\LDA;
+use Tourze\NES\CPU\Instructions\LDX;
+use Tourze\NES\CPU\Instructions\LDY;
+use Tourze\NES\CPU\Instructions\STA;
+use Tourze\NES\CPU\Instructions\STX;
+use Tourze\NES\CPU\Instructions\STY;
+use Tourze\NES\CPU\InstructionSet;
 
 /**
  * 加载和存储指令初始化器

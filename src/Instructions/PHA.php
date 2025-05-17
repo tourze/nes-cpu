@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Instructions;
+namespace Tourze\NES\CPU\Instructions;
 
-use Tourze\MOS6502\Bus;
-use Tourze\MOS6502\CPU;
-use Tourze\MOS6502\InstructionBase;
+use Tourze\NES\CPU\Bus;
+use Tourze\NES\CPU\CPU;
+use Tourze\NES\CPU\InstructionBase;
 
 /**
  * PHA - 压入累加器 (Push Accumulator)

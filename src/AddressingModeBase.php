@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502;
+namespace Tourze\NES\CPU;
 
 /**
  * 寻址模式抽象基类

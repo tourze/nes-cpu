@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\Instructions;
+namespace Tourze\NES\CPU\Tests\Instructions;
 
-use Tourze\MOS6502\StatusRegister;
+use Tourze\NES\CPU\StatusRegister;
 
 /**
  * 算术指令测试
@@ -146,6 +146,9 @@ class ArithmeticInstructionsTest extends InstructionTestCase
      */
     public function testADC_DecimalMode(): void
     {
+        // 允许BCD模式（禁用disableBCD）
+        $this->cpu->setDisableBCD(false);
+
         // 设置十进制模式
         $this->setFlag(StatusRegister::FLAG_DECIMAL, true);
 
@@ -165,6 +168,9 @@ class ArithmeticInstructionsTest extends InstructionTestCase
 
         // 清除十进制模式
         $this->setFlag(StatusRegister::FLAG_DECIMAL, false);
+
+        // 重新启用disableBCD（恢复NES兼容模式）
+        $this->cpu->setDisableBCD(true);
     }
 
     /**
@@ -248,9 +254,44 @@ class ArithmeticInstructionsTest extends InstructionTestCase
         // 执行指令
         $this->executeInstruction(0x0200);
 
-        // 验证结果 - 正数减负数产生溢出
-        $this->assertEquals(0xC0, $this->cpu->getRegister('A')->getValue(), '累加器应为0xC0');
-        $this->assertTrue($this->getFlag(StatusRegister::FLAG_OVERFLOW), '溢出标志应设置，因为正数-负数得到负数');
+        // 验证结果 - 溢出发生
+        $this->assertEquals(0xC0, $this->cpu->getRegister('A')->getValue(), '累加器应为0xC0 (11000000)');
+        $this->assertTrue($this->getFlag(StatusRegister::FLAG_OVERFLOW), '溢出标志应设置，因为正-负=负，符号不正确');
         $this->assertTrue($this->getFlag(StatusRegister::FLAG_NEGATIVE), '负标志应设置');
+        $this->assertFalse($this->getFlag(StatusRegister::FLAG_CARRY), '进位标志应清除(有借位)');
+    }
+
+    /**
+     * 测试SBC十进制模式
+     */
+    public function testSBC_DecimalMode(): void
+    {
+        // 允许BCD模式（禁用disableBCD）
+        $this->cpu->setDisableBCD(false);
+
+        // 设置十进制模式
+        $this->setFlag(StatusRegister::FLAG_DECIMAL, true);
+
+        // 设置初始值
+        $this->cpu->getRegister('A')->setValue(0x50); // 50 BCD
+        $this->setFlag(StatusRegister::FLAG_CARRY, true); // 无借位
+
+        // 设置SBC指令
+        $this->loadProgram([0xE9, 0x18], 0x0200); // SBC #$18 (18 BCD)
+
+        // 执行指令
+        $this->executeInstruction(0x0200);
+
+        // 验证结果 - 十进制调整
+        $this->assertEquals(0x32, $this->cpu->getRegister('A')->getValue(), '累加器应为0x32 (BCD为32，即50-18=32)');
+        $this->assertTrue($this->getFlag(StatusRegister::FLAG_CARRY), '进位标志应设置(无借位)');
+        $this->assertFalse($this->getFlag(StatusRegister::FLAG_ZERO), '零标志应清除');
+        $this->assertFalse($this->getFlag(StatusRegister::FLAG_NEGATIVE), '负标志应清除');
+
+        // 清除十进制模式
+        $this->setFlag(StatusRegister::FLAG_DECIMAL, false);
+
+        // 重新启用disableBCD（恢复NES兼容模式）
+        $this->cpu->setDisableBCD(true);
     }
 }

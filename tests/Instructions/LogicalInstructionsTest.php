@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Tourze\MOS6502\Tests\Instructions;
+namespace Tourze\NES\CPU\Tests\Instructions;
 
-use Tourze\MOS6502\StatusRegister;
+use Tourze\NES\CPU\StatusRegister;
 
 /**
  * 逻辑指令测试

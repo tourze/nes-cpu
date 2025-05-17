@@ -13,7 +13,7 @@
 ## 安装
 
 ```bash
-composer require tourze/mos-6502
+composer require tourze/nes-cpu
 ```
 
 ## 基本用法
@@ -42,7 +42,7 @@ echo "A寄存器: " . dechex($state['a']) . "\n";
 
 ## 文档
 
-有关更详细的文档，请查看`docs`目录或访问[项目Wiki](https://github.com/你的用户名/mos-6502/wiki)。
+有关更详细的文档，请查看`docs`目录或访问[项目Wiki](https://github.com/你的用户名/nes-cpu/wiki)。
 
 ## 测试
 

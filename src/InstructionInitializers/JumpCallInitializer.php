@@ -14,7 +14,7 @@ use Tourze\MOS6502\InstructionSet;
 
 /**
  * 跳转指令初始化器
- * 
+ *
  * 负责注册所有跳转和调用指令(JMP, JSR, RTS, RTI)
  */
 class JumpCallInitializer implements InstructionInitializer
@@ -35,7 +35,7 @@ class JumpCallInitializer implements InstructionInitializer
             AddressingModeFactory::absolute(),
             '无条件跳转（绝对寻址）'
         ));
-        
+
         // JMP - 无条件跳转 (间接寻址) (Jump to Location Indirect)
         $instructionSet->registerInstruction(0x6C, new JMP(
             0x6C,
@@ -44,7 +44,7 @@ class JumpCallInitializer implements InstructionInitializer
             AddressingModeFactory::indirect(),
             '无条件跳转（间接寻址）'
         ));
-        
+
         // JSR - 跳转到子程序 (Jump to Subroutine)
         $instructionSet->registerInstruction(0x20, new JSR(
             0x20,
@@ -53,7 +53,7 @@ class JumpCallInitializer implements InstructionInitializer
             AddressingModeFactory::absolute(),
             '跳转到子程序'
         ));
-        
+
         // RTS - 从子程序返回 (Return from Subroutine)
         $instructionSet->registerInstruction(0x60, new RTS(
             0x60,
@@ -62,7 +62,7 @@ class JumpCallInitializer implements InstructionInitializer
             AddressingModeFactory::implied(),
             '从子程序返回'
         ));
-        
+
         // RTI - 从中断返回 (Return from Interrupt)
         $instructionSet->registerInstruction(0x40, new RTI(
             0x40,
@@ -72,4 +72,4 @@ class JumpCallInitializer implements InstructionInitializer
             '从中断返回'
         ));
     }
-} 
+}

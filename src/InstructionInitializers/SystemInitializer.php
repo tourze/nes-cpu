@@ -16,7 +16,7 @@ use Tourze\MOS6502\InstructionSet;
 
 /**
  * 系统指令初始化器
- * 
+ *
  * 负责注册所有系统指令(BRK, NOP, PHA, PHP, PLA, PLP)
  */
 class SystemInitializer implements InstructionInitializer
@@ -37,7 +37,7 @@ class SystemInitializer implements InstructionInitializer
             AddressingModeFactory::implied(),
             '强制中断'
         ));
-        
+
         // NOP - 无操作 (No Operation)
         $instructionSet->registerInstruction(0xEA, new NOP(
             0xEA,
@@ -46,7 +46,7 @@ class SystemInitializer implements InstructionInitializer
             AddressingModeFactory::implied(),
             '无操作'
         ));
-        
+
         // PHA - 压入累加器 (Push Accumulator)
         $instructionSet->registerInstruction(0x48, new PHA(
             0x48,
@@ -55,7 +55,7 @@ class SystemInitializer implements InstructionInitializer
             AddressingModeFactory::implied(),
             '压入累加器'
         ));
-        
+
         // PHP - 压入处理器状态 (Push Processor Status)
         $instructionSet->registerInstruction(0x08, new PHP(
             0x08,
@@ -64,7 +64,7 @@ class SystemInitializer implements InstructionInitializer
             AddressingModeFactory::implied(),
             '压入处理器状态'
         ));
-        
+
         // PLA - 拉出累加器 (Pull Accumulator)
         $instructionSet->registerInstruction(0x68, new PLA(
             0x68,
@@ -73,7 +73,7 @@ class SystemInitializer implements InstructionInitializer
             AddressingModeFactory::implied(),
             '拉出累加器'
         ));
-        
+
         // PLP - 拉出处理器状态 (Pull Processor Status)
         $instructionSet->registerInstruction(0x28, new PLP(
             0x28,
@@ -83,4 +83,4 @@ class SystemInitializer implements InstructionInitializer
             '拉出处理器状态'
         ));
     }
-} 
+}

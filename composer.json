@@ -1,5 +1,5 @@
 {
-  "name": "tourze/mos-6502",
+  "name": "tourze/nes-cpu",
   "description": "MOS 6502",
   "type": "library",
   "license": "MIT",

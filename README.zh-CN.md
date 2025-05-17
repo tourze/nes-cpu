@@ -1,11 +1,11 @@
-# mos-6502
+# nes-cpu
 
 MOS 6502
 
 ## 安装
 
 ```bash
-composer require tourze/mos-6502
+composer require tourze/nes-cpu
 ```
 
 ## 使用方法
